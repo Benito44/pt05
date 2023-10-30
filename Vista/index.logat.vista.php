@@ -19,6 +19,12 @@
         <option value="15" <?php if ($productes == 15) echo 'selected'; ?>>15</option>
     </select>
 </form>
+<form method="POST" action="../Controlador/recupera_contra.php"> 
+        Recupera la contrasenya<br>
+        <input type="text" name="email" id="email" placeholder="correu electronic">
+        <input type="submit" value="Recuperar">
+</form>
+
     <div class="contenidor">
         <h1>Articles</h1>
         

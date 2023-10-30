@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Usuari</title>
     <link rel="stylesheet" type="text/css" href="../formulari.css">
-
 </head>
 <body>
     <h1>Login</h1>
@@ -28,6 +27,8 @@
         No t'has registrat? Registrat aqui!!<br>
         <input type="submit" value="Registrar">
     </form>
+
+
 </body>
 </html>
 
