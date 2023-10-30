@@ -1,7 +1,7 @@
 <?php 
 include_once '../Model/mainfunction.php';
 $connexio = connexio();
-/**
+session_start();/**
  * pagina
  *
  * @return void
@@ -40,6 +40,22 @@ function paginacio($paginas, $pagina_actual){
         echo '<li class="' . ("disabled") . '">Anterior</li>';                   
     }
 }
+/**
+ * productes
+ * Retornarà la sessió amb el valor de productes per pantalla que hem marcat.
+ * Per defecte serà 5
+ * @return int
+ */
+function productes(){
+    if (isset($_GET['opcions'])) {
+        $_SESSION['productes'] = $_GET['opcions'];
+    }
+    if (!isset($_SESSION['productes'])) {
+        $_SESSION['productes'] = 5; // Valor predeterminado
+    }
+    
+    return $_SESSION['productes'];
+}
 
 /**
  * mostrar_dades
@@ -49,7 +65,9 @@ function paginacio($paginas, $pagina_actual){
  * @return void
  */
 function mostrar_dades($connexio, $pagina_actual){
-    $statement = $connexio->prepare("SELECT * FROM articles WHERE usuari_id IS NULL ");
+    $productes = productes();
+    $start = ($pagina_actual - 1) * $productes;
+    $statement = $connexio->prepare("SELECT * FROM articles WHERE usuari_id IS NULL LIMIT $start, $productes");
     $statement->execute();
 
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
@@ -59,8 +77,9 @@ function mostrar_dades($connexio, $pagina_actual){
 
 
 try {
-    $num_total_registros = $connexio->query("SELECT COUNT(*) FROM articles")->fetchColumn();
-    $paginas = ceil(intval($num_total_registros) / intval(20));
+    $productes = productes();
+    $num_total_registros = $connexio->query("SELECT COUNT(*) FROM articles WHERE usuari_id IS NULL")->fetchColumn();
+    $paginas = ceil(intval($num_total_registros) / intval($productes));
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
 }

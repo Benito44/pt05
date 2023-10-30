@@ -1,7 +1,7 @@
 <?php 
 // Ens connectem a la base de dades
 function connexio(){
-    $dbname = 'pt04_benito_martinez';
+    $dbname = 'pt05_benito_martinez';
     $username = 'root';
     $password = '';
     $connexio = new PDO("mysql:host=localhost;dbname=$dbname", $username, $password);
