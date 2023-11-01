@@ -2,15 +2,23 @@
 require '../src/PHPMailer.php';
 require '../src/Exception.php';
 require '../src/SMTP.php';
-include '../Vista/recuperar_vista.php';
+require '../Model/mainfunction.php';
+//include '../Vista/recuperar_vista.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+
 session_start();
+$token = bin2hex(random_bytes(16)); // Genera un token aleatorio
+$connexio = connexio();
+
 $nom = $_SESSION['usuari'];
 $email = $_POST['email'];
-$text = "alberto ya he podido solucionar el problema";
+$usuari_id = usuari($nom);
+$text = 'http://localhost/Backend/UF2/pt05/Controlador/canviar_contra.php?token=' . $token . '&id=' . $usuari_id;
+
+$insertat_token = insertar_token($token, $usuari_id);
 
 phphmailer($nom, $email, $text);
 
@@ -31,7 +39,7 @@ function phphmailer($nom, $adreca, $text) {
       $mail->Host       = 'smtp.gmail.com';                    
       $mail->SMTPAuth   = true;                                   //Activem l'autenticació SMTP
       $mail->Username   = 'xamppbmartinez@gmail.com';                     //Email on creem la clau
-      $mail->Password   = 'owsq kxwa hxoh tzyv';                          //Clau d'acces
+      $mail->Password   = 'jvrg fwih oxgm ncwm';                          //Clau d'acces
       $mail->SMTPSecure = 'PHPMailer::ENCRYPTION_STARTTLS';            //Enable implicit TLS encryption
       $mail->Port       = 587;                                    // Utilitzem el port 587
     

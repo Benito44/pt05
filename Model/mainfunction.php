@@ -20,4 +20,30 @@ function usuari($usuari){
     }
     return $usuari_id;
 }
+function encontrar_token($usuari){
+    $token = "";
+    $connexio = "";
+    $connexio = connexio();
+    $statement = $connexio->prepare("SELECT token FROM usuaris WHERE usuari = ?");
+    $statement->bindParam(1,$usuari);
+    $statement->execute();
+    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+        $token = $row["token"];
+    }
+    return $token;
+}
+function insertar_token($token,$usuari_id){
+    
+    $connexio = connexio();
+    $statement = $connexio->prepare("UPDATE usuaris SET token=? WHERE usuari_id= ?");
+    $statement->bindParam(1,$token);
+    $statement->bindParam(2,$usuari_id);
+    $statement->execute();
+
+
+    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+        $token = $row["token"];
+    }
+    return $token;
+}
 ?>

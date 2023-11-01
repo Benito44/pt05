@@ -3,12 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registrar Usuari</title>
+    <link rel="stylesheet" type="text/css" href="../formulari.css">
+
 </head>
 <body>
-    <form>
+    <h1>Recuperar</h1>
+    <form action="../Controlador/canviar_contra.php" id="form" method="post">
         Contrasenya
-        torna a posar la contra
+        <input type="password" id="contra" name="contra" placeholder="Usuari1@1234"><br><br>
+        Torna a posar la contrasenya
+        <input type="password" id="contra2" name="contra2" placeholder="Usuari1@1234"><br><br>
+
+        <input type="submit" value="Registrat">
+        <a href="../Controlador/index.logat.php">Torna</a>
+
+        <span class="error">
+		<?php if(!isset($error)){
+		$error;
+	        }else{echo $error;}?>
+	</span> 
     </form>
+    
+
 </body>
 </html>
