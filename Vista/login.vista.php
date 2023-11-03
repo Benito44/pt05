@@ -21,7 +21,10 @@
 		$error;
 	        }else{echo $error;}?>
 	</span> 
-    
+    <div class="enlace">
+         <?php require ('../autentificacion.php')?>
+        <a href="<?php echo $client->createAuthUrl() ?>">Iniciar sesión con Google</a>
+      </div>
     </form>
     <form action="registrar.vista.php" id="form" method="post"> 
         No t'has registrat? Registrat aqui!!<br>
