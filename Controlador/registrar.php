@@ -37,7 +37,7 @@ function duplicatEMAIL($data){
 $usuari = $_POST['usuari'];
 $email = $_POST['email'];
 $contra = $_POST['contra'];
-
+$contra2 = $_POST['contra2'];
 $error = "";
 // Mirem si l'email té el format diferent
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
