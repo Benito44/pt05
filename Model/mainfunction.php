@@ -68,12 +68,13 @@ function idPorToken($token){
     }
     return $usuari_id;
 }
-function insertar_token($token,$email){
+function insertar_token($token,$email,$temps){
     
     $connexio = connexio();
-    $statement = $connexio->prepare("UPDATE usuaris SET token=? WHERE email= ?");
+    $statement = $connexio->prepare("UPDATE usuaris SET token=?,temps = ? WHERE email= ?");
     $statement->bindParam(1,$token);
-    $statement->bindParam(2,$email);
+    $statement->bindParam(2,$temps);
+    $statement->bindParam(3,$email);
     $statement->execute();
 
 
@@ -82,4 +83,17 @@ function insertar_token($token,$email){
     }
     return $token;
 }
+function tempsPerEmail($email){
+    $temps = "";
+    $connexio = "";
+    $connexio = connexio();
+    $statement = $connexio->prepare("SELECT temps FROM usuaris WHERE email = ?");
+    $statement->bindParam(1,$email);
+    $statement->execute();
+    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+        $temps = $row["temps"];
+    }
+    return $temps;
+}
+
 ?>
