@@ -12,15 +12,13 @@ use PHPMailer\PHPMailer\Exception;
 session_start();
 $token = bin2hex(random_bytes(16)); // Genera un token aleatorio
 $connexio = connexio();
-
-$nom = $_SESSION['usuari'];
 $email = $_POST['email'];
-$usuari_id = usuari($nom);
-$text = 'http://localhost/Backend/UF2/pt05/Controlador/canviar_contra.php?token=' . $token . '&id=' . $usuari_id;
+$_SESSION['email'] = $email;
+$usuari = encontrarPorEmail($email);
+$insertat_token = insertar_token($token, $email);
+$text = 'http://localhost/Backend/UF2/pt05/Controlador/canviar_contra.php?token=' . $insertat_token . '&usuari=' . $usuari;
 
-$insertat_token = insertar_token($token, $usuari_id);
-
-phphmailer($nom, $email, $text);
+phphmailer($usuari, $email, $text);
 
 function phphmailer($nom, $adreca, $text) {
     $mail = new PHPMailer(true);

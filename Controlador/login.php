@@ -3,7 +3,7 @@ session_start();
 require '../Model/mainfunction.php';
 include  '../Vista/login.vista.php';
 if(isset($_POST['usuari']))$usuari = $_POST['usuari'];
-if(isset($_POST['usuari']))$contra = $_POST['contra'];
+if(isset($_POST['contra']))$contra = $_POST['contra'];
 
 $connexio_real = connexio();
 $error = "";
@@ -32,7 +32,6 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
         $statement->execute();
         header('Location: ../Vista/captcha.html');
     } else if ($usuari == $row["usuari"] && (password_verify($contra, $row["contrasenya"]))) {
-
         $_SESSION['usuari'] = $usuari;
         $_SESSION['contra'] = $contra;
         $statement = $connexio_real->prepare("UPDATE usuaris SET intents = 0 WHERE usuari = ?");

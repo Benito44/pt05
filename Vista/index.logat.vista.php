@@ -19,15 +19,9 @@
         <option value="15" <?php if ($productes == 15) echo 'selected'; ?>>15</option>
     </select>
 </form>
-<form method="POST" action="../Controlador/recupera_contra.php"> 
-        Recupera la contrasenya<br>
-        <input type="text" name="email" id="email" placeholder="correu electronic">
-        <input type="submit" value="Recuperar">
-</form>
 
     <div class="contenidor">
         <h1>Articles</h1>
-        
         <section class="articles">
             <ul>
                 <?php mostrar_dades2($connexio, $pagina_actual) ?>
@@ -46,8 +40,6 @@
         <h4>Modificacio d'articles</h4>
                 <input type="submit" value="Modificacio d'articles">
         </form>
-
-
         </div>
 </body>
 </html>

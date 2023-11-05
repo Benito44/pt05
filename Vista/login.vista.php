@@ -30,6 +30,11 @@
         No t'has registrat? Registrat aqui!!<br>
         <input type="submit" value="Registrar">
     </form>
+    <form method="POST" action="../Controlador/recupera_contra.php"> 
+        Recupera la contrasenya<br>
+        <input type="text" name="email" id="email" placeholder="correu electronic">
+        <input type="submit" value="Recuperar">
+</form>
 
 
 </body>
