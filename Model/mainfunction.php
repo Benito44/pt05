@@ -91,6 +91,30 @@ function insertar_usuari_Oauth2($usuari, $email){
     $statement->bindParam(2, $email);
     $statement->execute();
 }
+function comprovarEmail($email){
+    $email_registrat = "";
+    $connexio = "";
+    $connexio = connexio();
+    $statement = $connexio->prepare("SELECT email FROM usuaris WHERE email = ?");
+    $statement->bindParam(1, $email);
+    $statement->execute();
+    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+        $email_registrat = $row["email"];
+    }
+    return $email_registrat;
+}
+function comprovarNom($usuari){
+    $usuari_registrat = "";
+    $connexio = "";
+    $connexio = connexio();
+    $statement = $connexio->prepare("SELECT usuari FROM usuaris WHERE usuari = ?");
+    $statement->bindParam(1, $usuari);
+    $statement->execute();
+    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+        $usuari_registrat = $row["usuari"];
+    }
+    return $usuari_registrat;
+}
 function tempsPerEmail($email){
     $temps = "";
     $connexio = "";

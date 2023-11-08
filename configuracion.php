@@ -1,5 +1,5 @@
 <?php
-
+/*
   require 'vendor/autoload.php';
   $clientID = '212855023826-2h5jq7reovdeva6m6e6ourdlbc067c4t.apps.googleusercontent.com';
               
@@ -14,14 +14,14 @@
   $client->addScope("email");
   $client->addScope("profile");
 
-/*
+*/
 require_once 'vendor/autoload.php';
  
 $config = [
-    'callback' => 'http://localhost/Backend/UF2/pt05/Controlador/index.logat.php',
+    'callback' => 'http://localhost/Backend/UF2/pt05/controlargoogle.php',
     'keys'     => [
-                    'id' => '532009720343-mupdo12pg1nbdmngk9kdev76p47ukc5t.apps.googleusercontent.com',
-                    'secret' => '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'
+                    'id' => '212855023826-2h5jq7reovdeva6m6e6ourdlbc067c4t.apps.googleusercontent.com',
+                    'secret' => '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'
                 ],
     'scope'    => 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
     'authorize_url_parameters' => [
@@ -31,5 +31,5 @@ $config = [
 ];
  
 $adapter = new Hybridauth\Provider\Google($config);
-*/
+
 ?>  

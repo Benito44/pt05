@@ -1,22 +1,48 @@
 <?php
-
-  //require 'autentificacion.php';
+/*
+  require 'autentificacion.php';
   require 'Model/mainfunction.php';  
   
-  // now you can use this profile info to create account in your website and make user logged in.
-  $usuari = "Benito_OAUTH2";
-  $email = "oauth2@gmail.com";
+  $usuari =  $google_account_info->name;
+  $email = $google_account_info->email = $email;
 
 
-insertar_usuari_Oauth2($usuari, $email);
+if (comprovarEmail($email)){
+  echo "L'email ja està registrat";
+} elseif(comprovarNom($usuari)){
+  echo "El nom ja està registrat";
+}else{
+  insertar_usuari_Oauth2($usuari, $email);
+  $_SESSION['usuari'] = $usuari;
+  header('Location: Controlador/index.logat.php');
+}
+*/
+
+require 'autentificacion.php';
+require 'Model/mainfunction.php'; 
+try {
+  $adapter->authenticate();
+  $userProfile = $adapter->getUserProfile();
+  $usuari = $userProfile->lastName;
+  $email = $userProfile->email;
+if (comprovarEmail($email)){
+  echo "L'email ja està registrat";
+  session_destroy();
+} elseif(comprovarNom($usuari)){
+  echo "El nom ja està registrat";
+  session_destroy();
+}else{
+  insertar_usuari_Oauth2($usuari, $email);
+  $_SESSION['usuari'] = $usuari;
+  header('Location: Controlador/index.logat.php');
+}
+}catch(Exception $e) {
+  echo "Error: " . $e->getMessage();
+
+}
 
 
-  //$statement = $connexio->prepare("SELECT * FROM usuaris WHERE usuari = ?");
-  //$statement->bindParam(1, $usuari);
-  //$statement->execute();
-  //$resultat = $sstatementmt->fetch(PDO::FETCH_OBJ);
-echo $usuari;
-      //$_SESSION['usuari'] = $usuari;
-     
+
+
 
 ?>

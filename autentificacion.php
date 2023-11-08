@@ -1,5 +1,5 @@
 <?php
-
+/*
   require 'configuracion.php';
 
   
@@ -17,22 +17,23 @@ if (isset($_GET['code'])) {
   $email =  $google_account_info->email;
   $name =  $google_account_info->name;
 
+
 } 
+*/
 
 
 
 
-/*
 require 'configuracion.php';
- 
+
 try {
     $adapter->authenticate();
     $userProfile = $adapter->getUserProfile();
-    print_r($userProfile);
+    //print_r($userProfile);
 }
 catch( Exception $e ){
     echo $e->getMessage() ;
 }
 
-*/
+
 ?>
