@@ -76,12 +76,20 @@ function insertar_token($token,$email,$temps){
     $statement->bindParam(2,$temps);
     $statement->bindParam(3,$email);
     $statement->execute();
-
+//    INSERT INTO usuaris (usuari, email) VALUES ('control', 'control@gmail.com')
 
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
         $token = $row["token"];
     }
     return $token;
+}
+function insertar_usuari_Oauth2($usuari, $email){
+    $connexio = "";
+    $connexio = connexio();
+    $statement = $connexio->prepare("INSERT INTO usuaris (usuari, email) VALUES (?, ?)");
+    $statement->bindParam(1, $usuari);
+    $statement->bindParam(2, $email);
+    $statement->execute();
 }
 function tempsPerEmail($email){
     $temps = "";

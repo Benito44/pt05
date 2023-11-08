@@ -1,17 +1,14 @@
 
 <?php 
-include '../Vista/captcha.html';
-
-		
-		$name = $_POST['name'];
-		$password = $_POST['password'];
 		$captcha = $_POST['g-recaptcha-response'];
-		
 		$secret = '6LeKeOwoAAAAAEMJivYnwkEK84-orLl-twgUDgM1';
+		$response = "";
+		$error = "";
 		$arr = json_decode($response, FALSE);
 		if(!$captcha){
 
-			echo "Por favor verifica el captcha";
+			$error = "Por favor verifica el captcha";
+			include '../Vista/captcha.php';
 			
 			} else {
 			

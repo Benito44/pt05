@@ -1,20 +1,20 @@
 <?php
-/*
-  require_once 'vendor/autoload.php';
 
-  $clientID = '532009720343-mupdo12pg1nbdmngk9kdev76p47ukc5t.apps.googleusercontent.com';
-  $clientSecret = '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';
-  $redirectUri = 'http://localhost/Backend/UF2/pt05/Controlador/index.logat.php';
+  require 'vendor/autoload.php';
+  $clientID = '212855023826-2h5jq7reovdeva6m6e6ourdlbc067c4t.apps.googleusercontent.com';
+              
+  $clientSecret = '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';
+  $redirectUri = 'http://localhost/Backend/UF2/pt05/controlargoogle.php';
 
   // create Client Request to access Google API
-  $client = new Google_Client();
+  $client = new Google\Client();
   $client->setClientId($clientID);
   $client->setClientSecret($clientSecret);
   $client->setRedirectUri($redirectUri);
   $client->addScope("email");
   $client->addScope("profile");
-*/
 
+/*
 require_once 'vendor/autoload.php';
  
 $config = [
@@ -30,5 +30,6 @@ $config = [
     ]
 ];
  
-$adapter = new Hybridauth\Provider\Google( $config );
+$adapter = new Hybridauth\Provider\Google($config);
+*/
 ?>  

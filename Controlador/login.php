@@ -30,7 +30,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
       $statement = $connexio_real->prepare("UPDATE usuaris SET intents = 0 WHERE usuari = ?");
         $statement->bindParam(1, $usuari);
         $statement->execute();
-        header('Location: ../Vista/captcha.html');
+        header('Location: ../Vista/captcha.php');
     } else if ($usuari == $row["usuari"] && (password_verify($contra, $row["contrasenya"]))) {
         $_SESSION['usuari'] = $usuari;
         $_SESSION['contra'] = $contra;

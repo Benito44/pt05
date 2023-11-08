@@ -19,7 +19,11 @@
         <option value="15" <?php if ($productes == 15) echo 'selected'; ?>>15</option>
     </select>
 </form>
-
+<span class="error">
+		<?php if(!isset($errors)){
+		$errors;
+	        }else{echo $errors;}?>
+	</span> 
     <div class="contenidor">
         <h1>Articles</h1>
         <section class="articles">

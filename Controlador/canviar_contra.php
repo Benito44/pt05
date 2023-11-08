@@ -13,6 +13,7 @@ $email = $_SESSION['email'];
 
 $usuari = encontrarPorEmail($email);
 $expiration = tempsPerEmail($email);
+
 if ($contra != $contra2) {
     $error = "Les contrasenyes no són iguals.";
     include '../Vista/recuperar_vista.php';

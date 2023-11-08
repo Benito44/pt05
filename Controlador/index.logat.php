@@ -1,8 +1,11 @@
 <?php 
 session_start();
 error_reporting(0);
-include_once '../Model/mainfunction.php';
+require '../Model/mainfunction.php';
+
+require_once '../autentificacion.php';
 $connexio = connexio();
+
 function productes2(){
     if (isset($_GET['opcions'])) {
         $_SESSION['productes'] = $_GET['opcions'];
@@ -80,6 +83,7 @@ function mostrar_dades2($connexio, $pagina_actual){
 
 // Conexión a la base de datos	
 try {
+    
     $productes = productes2();
     $usuari = $_SESSION['usuari'];
     $usuari_id = "";
