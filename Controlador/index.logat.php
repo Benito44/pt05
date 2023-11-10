@@ -2,8 +2,6 @@
 session_start();
 error_reporting(0);
 require '../Model/mainfunction.php';
-
-require_once '../autentificacion.php';
 $connexio = connexio();
 
 function productes2(){

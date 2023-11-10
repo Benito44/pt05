@@ -6,17 +6,17 @@
 include 'vendor/autoload.php';
 
 $config = [
-    'callback' => Hybridauth\HttpClient\Util::getCurrentUrl(),
+    'callback' => Hybridauth\HttpClient\Util::getCurrentUrl(), // link 
 
     'keys' => ['id' => '', 'secret' => ''],
 ];
 
-$guzzle = new Hybridauth\HttpClient\Guzzle(null, [
+//$guzzle = new Hybridauth\HttpClient\Guzzle(null, [
     // 'verify' => true, # Set to false to disable SSL certificate verification
-]);
+//]);
 
 try {
-    $adapter = new Hybridauth\Provider\Github($config, $guzzle);
+    $adapter = new Hybridauth\Provider\Github($config);
 
     $adapter->authenticate();
 

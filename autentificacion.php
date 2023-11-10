@@ -1,4 +1,5 @@
 <?php
+
 /*
   require 'configuracion.php';
 
@@ -19,12 +20,12 @@ if (isset($_GET['code'])) {
 
 
 } 
+
+
 */
 
 
-
-
-require 'configuracion.php';
+//require 'configuracion.php';
 
 try {
     $adapter->authenticate();
@@ -34,6 +35,5 @@ try {
 catch( Exception $e ){
     echo $e->getMessage() ;
 }
-
 
 ?>

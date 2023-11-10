@@ -14,7 +14,7 @@
   $client->addScope("email");
   $client->addScope("profile");
 
-*/
+
 require_once 'vendor/autoload.php';
  
 $config = [
@@ -31,5 +31,5 @@ $config = [
 ];
  
 $adapter = new Hybridauth\Provider\Google($config);
-
+*/
 ?>  

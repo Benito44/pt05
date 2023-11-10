@@ -22,17 +22,13 @@
 	        }else{echo $error;}?>
 	</span> 
 
-    <!--<div class="enlace">
+    <div class="enlace">
          <?php //require ('../autentificacion.php')?>
         <a href="<?php //echo $client->createAuthUrl() ?>">Iniciar sesión con Google</a>
       </div>
-        -->
-
-
     </form>
-    <form action= "../controlargoogle.php">
-      <input type="submit" name="submit2" value="Inicia sessio">
-      </form>
+    <a href="../github.php">HYBRIDAUTH</a>
+    
     <form action="registrar.vista.php" id="form" method="post"> 
         No t'has registrat? Registrat aqui!!<br>
         <input type="submit" value="Registrar">
