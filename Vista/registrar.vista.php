@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Usuari</title>
-    <link rel="stylesheet" type="text/css" href="../formulari.css">
-
+    <link rel="stylesheet" href="../Model/formulari.css">
 </head>
 <body>
     <h1>Registre</h1>

@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">  
-    <link rel="stylesheet" href="../estils.css">
+    <link rel="stylesheet" href="../Model/estils.css">
     <title>Paginación</title>
+    <style>
+
+</style>
+
 </head>
 <body>
-    <form action="../Vista/registrar.vista.php" method="post">
-    <input type="submit" value="Registrar-se">
-
-    </form>
-    <form action="../Vista/login.vista.php" method="post">
-    <input type="submit" value="Login">
-    </form>
+    <form method="post">
+    <input type="submit" formaction="../Vista/registrar.vista.php" value="Registrar-se">
+    <input type="submit" formaction="../Vista/login.vista.php" value="Login">
+</form>
 
     <form method="GET" action="../Controlador/index.php">
     <label for="opcions">Articles per pàgina:</label>

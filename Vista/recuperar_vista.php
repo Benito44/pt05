@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Usuari</title>
-    <link rel="stylesheet" type="text/css" href="../formulari.css">
+    <link rel="stylesheet" href="../Model/formulari.css">
 
 </head>
 <body>
-    <h1>Recuperar</h1>
+    <h1>Recuperar contrasenya</h1>
     <form action="../Controlador/canviar_contra.php" id="form" method="post">
         Contrasenya
         <input type="password" id="contra" name="contra" placeholder="Usuari1@1234"><br><br>

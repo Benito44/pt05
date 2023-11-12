@@ -3,6 +3,7 @@
 		<title>Google Recapcha</title>
 		<link rel="stylesheet" type="text/css" href="../formulari.css">
 		<script src='https://www.google.com/recaptcha/api.js'></script>
+		<link rel="stylesheet" href="../Model/formulari.css">
 	</head>
 	<body>	
 		<form id="form" action="../Controlador/captcha_C.php" method="POST">

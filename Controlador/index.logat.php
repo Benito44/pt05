@@ -1,9 +1,16 @@
 <?php 
+// Establecer los parámetros de la cookie de sesión para que coincidan con el tiempo de vida de la sesión
+session_set_cookie_params(25*60);
 session_start();
 error_reporting(0);
 require '../Model/mainfunction.php';
 $connexio = connexio();
 
+/**
+ * productes2
+ *
+ * @return string
+ */
 function productes2(){
     if (isset($_GET['opcions'])) {
         $_SESSION['productes'] = $_GET['opcions'];
