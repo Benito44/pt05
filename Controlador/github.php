@@ -12,7 +12,7 @@ try {
     $adapter = new Hybridauth\Provider\Github($config);
 
     $adapter->authenticate();
-
+    // Usuari i email de l'autentificació
     $tokens = $adapter->getAccessToken();
     $userProfile = $adapter->getUserProfile();
     $usuari = $userProfile->displayName;

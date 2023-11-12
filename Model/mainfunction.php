@@ -266,7 +266,7 @@ function seleccionarArticles($usuari_id){
  } 
  /**
   * intents
-  * Sel·leccionem els intents de cada usuari i si els seus intents són més de dos sortirà el captcha per
+  * Sel·leccionem els intents de cada usuari, els modifiquem cada vegada que s'equivoquen i si els seus intents són més de dos sortirà el captcha per
   * verificar
   * @param  mixed $usuari
   * @param  mixed $contra

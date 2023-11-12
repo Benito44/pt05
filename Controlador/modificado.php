@@ -9,9 +9,6 @@ try {
     $usuari = $_SESSION['usuari'];
     $usuari_id = "";
     $usuari_id = usuari($usuari);
-
-
-
     // Modifiquem l'article on l'usuari ens indica depenent de l'id insertat
     $article_nou = "";
     $id_vell = "";
