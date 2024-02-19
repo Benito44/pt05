@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../Model/mainfunction.php';
+include '../Model/mainfunction.php';
 include  '../Vista/login.vista.php';
 $error = "";
 $intents = 0;
@@ -11,6 +11,16 @@ if (isset($_POST['usuari']) ||isset($_POST['contra']) ) {
   intents($usuari, $contra);
   }
 
+  while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+    if ($usuari != $row["usuari"] || $_POST['usuari'] == "" || (!password_verify($contra,$row["contrasenya"]))){
+      $error = "No s'ha posat l'usuari o la contrasenya correctament";
+      include  '../Vista/login.vista.php';
+    } else if (($usuari == $row["usuari"] && (password_verify($contra,$row["contrasenya"])))){
+        $_SESSION['usuari'] = $usuari;
+        $_SESSION['contra'] = $contra;
+        include 'index.logat.php';
+      } 
+  }
 
 
 ?>
